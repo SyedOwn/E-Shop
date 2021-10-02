@@ -10,19 +10,23 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
   <title>Hello, world!</title>
 
   <style>
-    nav{
+    nav {
       background-color: white;
     }
+
     .one-edge-shadow {
-              box-shadow: 0 8px 2px -5px rgb(246, 245, 245);
-}
-.display-8{
-  font-weight: 200;
-  font-size: 30px;
-}
+      box-shadow: 0 8px 2px -5px rgb(246, 245, 245);
+    }
+
+    .display-8 {
+      font-weight: 200;
+      font-size: 30px;
+    }
   </style>
 </head>
 
@@ -31,7 +35,7 @@
   <!-- navbar -->
 
   <nav class="one-edge-shadow sticky-top navbar navbar-expand-lg
-   navbar-light bg-white">
+   navbar-dark bg-dark">
     <a class="navbar-brand" href="/">E-Shop</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,20 +53,22 @@
 
       <ul class=" navbar-nav my-2 my-lg-0">
         <li class="nav-item ">
-          <a class="nav-link" href="/cart">Cart 
-            <span class="badge badge-info">{{request.session.cart.keys|length}}</span>
+          <a class="nav-link" href="/cart">Cart<i class="fas fa-shopping-cart"></i><sup><span
+                class="badge badge-info">{{request.session.cart.keys|length}}</span>
+            </sup>
+
             <span class="sr-only">(current)</span></a>
         </li>
         {% if request.session.customer %}
-        
+
         <li class="nav-item ">
           <a class="nav-link" href="/orders">Orders<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i><span class="sr-only">(current)</span></a>
         </li>
         {% else %}
-       
+
         <li class="nav-item ">
           <a class="nav-link" href="/signup">Signup<span class="sr-only">(current)</span></a>
         </li>
@@ -80,7 +86,7 @@
   </nav>
 
 
-    {% block content %}{% endblock %}
+  {% block content %}{% endblock %}
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
